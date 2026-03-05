@@ -86,7 +86,7 @@ router.get("/", async (req, res) => {
 
                 if (connection === "open") {
                     console.log("✅ Connected successfully!");
-                    console.log("📱 Uploading session to MEGA...");
+                    console.log("📱 Uploading session to ANJA...");
 
                     try {
                         const credsPath = dirs + "/creds.json";
@@ -108,9 +108,9 @@ router.get("/", async (req, res) => {
                             await KnightBot.sendMessage(userJid, {
                                 text: `${megaFileId}`,
                             });
-                            console.log("📄 MEGA file ID sent successfully");
+                            console.log("📄 ANJA file ID sent successfully");
                         } else {
-                            console.log("❌ Failed to upload to MEGA");
+                            console.log("❌ Failed to upload to ANJA");
                         }
 
                         console.log("🧹 Cleaning up session...");
@@ -123,7 +123,7 @@ router.get("/", async (req, res) => {
                         await delay(2000);
                         process.exit(0);
                     } catch (error) {
-                        console.error("❌ Error uploading to MEGA:", error);
+                        console.error("❌ Error uploading to ANJA:", error);
                         removeFile(dirs);
                         await delay(2000);
                         process.exit(1);
